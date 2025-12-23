@@ -316,3 +316,279 @@ document.head.appendChild(style);
 console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #00FFD1;');
 console.log('%cThis portfolio was crafted with ❤️ by Syed Arsalan Shah', 'font-size: 14px; color: #00D4FF;');
 console.log('%cLooking for a mobile developer? Get in touch!', 'font-size: 12px; color: #888;');
+
+// ===== PROJECT MODAL =====
+const projectModal = document.getElementById('project-modal');
+const modalClose = document.getElementById('modal-close');
+const modalBackdrop = document.querySelector('.modal-backdrop');
+const galleryMainImage = document.getElementById('gallery-main-image');
+const galleryThumbnails = document.getElementById('gallery-thumbnails');
+const galleryPrev = document.getElementById('gallery-prev');
+const galleryNext = document.getElementById('gallery-next');
+const modalTitle = document.getElementById('modal-title');
+const modalCategory = document.getElementById('modal-category');
+const modalDescription = document.getElementById('modal-description');
+const modalTechTags = document.getElementById('modal-tech-tags');
+const modalFeaturesList = document.getElementById('modal-features-list');
+const modalAppLink = document.getElementById('modal-app-link');
+
+// Project data with details and images
+const projectsData = {
+  'ui-story': {
+    title: 'UI Story',
+    category: 'iOS App',
+    description: 'UI Story is a powerful design inspiration app that helps designers and developers discover, save, and organize beautiful UI patterns from top mobile applications. Browse through curated collections of stunning interfaces and get inspired for your next project.',
+    tech: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'UIKit'],
+    features: [
+      'Curated collection of premium UI designs',
+      'Smart categorization and tagging system',
+      'Offline access to saved inspirations',
+      'Cloud sync across all devices',
+      'Advanced search and filtering options'
+    ],
+    images: ['./assets/images/ui_story.png'],
+    appLink: '#'
+  },
+  'boxit4me': {
+    title: 'Boxit4me',
+    category: 'iOS App',
+    description: 'Boxit4me is a comprehensive package tracking and management application that simplifies the way you handle deliveries. Track packages from multiple carriers in one place, get real-time notifications, and never miss a delivery again.',
+    tech: ['Swift', 'UIKit', 'Push Notifications', 'REST APIs', 'Firebase'],
+    features: [
+      'Multi-carrier package tracking support',
+      'Real-time delivery notifications',
+      'Barcode and QR code scanning',
+      'Delivery history and analytics',
+      'Share tracking with family and friends'
+    ],
+    images: ['./assets/images/boxit4me_ios.png', './assets/images/boxit4me_android.png'],
+    appLink: '#'
+  },
+  'meezan360': {
+    title: 'Meezan360',
+    category: 'iOS App',
+    description: 'Meezan360 is a complete Islamic lifestyle companion app offering prayer times, Qibla direction, Quran with translations, and Duas. Designed with beautiful UI and accurate calculations to support your daily spiritual journey.',
+    tech: ['Swift', 'SwiftUI', 'CoreLocation', 'AVFoundation', 'Combine'],
+    features: [
+      'Accurate prayer times based on location',
+      'Precise Qibla compass direction',
+      'Complete Quran with audio recitations',
+      'Daily Duas and Adhkar collection',
+      'Beautiful Islamic calendar integration'
+    ],
+    images: ['./assets/images/meezan360.png'],
+    appLink: '#'
+  },
+  'tmbooking': {
+    title: 'TMBooking',
+    category: 'Android App',
+    description: 'TMBooking is a seamless booking platform designed for service-based businesses. Users can easily browse available services, select time slots, and make reservations with just a few taps. Perfect for salons, spas, and appointment-based businesses.',
+    tech: ['Kotlin', 'Jetpack Compose', 'Room DB', 'Retrofit', 'Firebase'],
+    features: [
+      'Easy service browsing and selection',
+      'Real-time availability checking',
+      'Secure payment integration',
+      'Booking reminders and notifications',
+      'Rating and review system'
+    ],
+    images: ['./assets/images/tmbooking.jpg'],
+    appLink: '#'
+  },
+  'fursah': {
+    title: 'Fursah App',
+    category: 'iOS App',
+    description: 'Fursah is a dynamic job search and career development platform connecting job seekers with top employers in the region. Features intelligent job matching, resume building tools, and career resources to help you land your dream job.',
+    tech: ['Swift', 'UIKit', 'Alamofire', 'Core Data', 'Push Notifications'],
+    features: [
+      'AI-powered job recommendations',
+      'Professional resume builder',
+      'One-tap job applications',
+      'Interview scheduling and reminders',
+      'Career insights and salary data'
+    ],
+    images: ['./assets/images/fursah1.webp', './assets/images/fursah2.webp', './assets/images/fursah3.webp', './assets/images/fursah4.webp'],
+    appLink: '#'
+  },
+  'fm91': {
+    title: 'FM91',
+    category: 'iOS App',
+    description: 'FM91 is a feature-rich radio streaming application bringing the best of FM radio to your fingertips. Enjoy live broadcasts, on-demand shows, podcasts, and never miss your favorite programs with our smart recording feature.',
+    tech: ['Swift', 'AVFoundation', 'MediaPlayer', 'Background Audio', 'Firebase'],
+    features: [
+      'High-quality live radio streaming',
+      'On-demand show playback',
+      'Background audio playback',
+      'Program schedule and reminders',
+      'Social sharing and interactions'
+    ],
+    images: ['./assets/images/fm1.jpeg', './assets/images/fm2.jpeg', './assets/images/fm3.jpeg', './assets/images/fm4.jpeg'],
+    appLink: '#'
+  },
+  'catchmapp': {
+    title: 'Catchmapp',
+    category: 'Android App',
+    description: 'Catchmapp is a location-based social discovery platform that helps you find interesting places, events, and people around you. Explore hidden gems in your city, discover trending spots, and connect with like-minded individuals.',
+    tech: ['Kotlin', 'Google Maps SDK', 'Firebase', 'Retrofit', 'Room DB'],
+    features: [
+      'Real-time location discovery',
+      'Interactive map with custom markers',
+      'Social check-ins and reviews',
+      'Event discovery and notifications',
+      'Personalized recommendations'
+    ],
+    images: ['./assets/images/cm1.webp', './assets/images/cm2.webp', './assets/images/cm3.webp', './assets/images/cm4.webp', './assets/images/cm5.webp'],
+    appLink: '#'
+  },
+  'dining': {
+    title: 'Dining & Nightlife',
+    category: 'Android App',
+    description: 'Dining & Nightlife is your ultimate guide to the best restaurants, bars, and entertainment venues in your city. Discover new dining experiences, read reviews, make reservations, and explore the vibrant nightlife scene.',
+    tech: ['Kotlin', 'Jetpack Compose', 'Google Places API', 'Firebase', 'Stripe'],
+    features: [
+      'Comprehensive restaurant directory',
+      'Real-time table reservations',
+      'User reviews and ratings',
+      'Exclusive deals and offers',
+      'Curated nightlife guide'
+    ],
+    images: ['./assets/images/dining1.webp', './assets/images/dining2.webp', './assets/images/dining3.webp', './assets/images/dining4.webp'],
+    appLink: '#'
+  }
+};
+
+let currentGalleryIndex = 0;
+let currentProjectImages = [];
+
+// Open project modal
+function openProjectModal(projectId) {
+  const project = projectsData[projectId];
+  if (!project) return;
+
+  // Set modal content
+  modalTitle.textContent = project.title;
+  modalCategory.textContent = project.category;
+  modalDescription.textContent = project.description;
+
+  // Set tech tags
+  modalTechTags.innerHTML = project.tech
+    .map(tech => `<span class="tech-tag">${tech}</span>`)
+    .join('');
+
+  // Set features list
+  modalFeaturesList.innerHTML = project.features
+    .map(feature => `<li>${feature}</li>`)
+    .join('');
+
+  // Set app link
+  if (project.appLink && project.appLink !== '#') {
+    modalAppLink.href = project.appLink;
+    modalAppLink.classList.remove('hidden');
+  } else {
+    modalAppLink.classList.add('hidden');
+  }
+
+  // Set gallery images
+  currentProjectImages = project.images;
+  currentGalleryIndex = 0;
+  updateGallery();
+
+  // Create thumbnails
+  galleryThumbnails.innerHTML = currentProjectImages
+    .map((img, index) => `
+      <div class="gallery-thumbnail ${index === 0 ? 'active' : ''}" data-index="${index}">
+        <img src="${img}" alt="Thumbnail ${index + 1}" loading="lazy">
+      </div>
+    `)
+    .join('');
+
+  // Add thumbnail click handlers
+  galleryThumbnails.querySelectorAll('.gallery-thumbnail').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      currentGalleryIndex = parseInt(thumb.dataset.index);
+      updateGallery();
+    });
+  });
+
+  // Show modal
+  projectModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Close project modal
+function closeProjectModal() {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Update gallery display
+function updateGallery() {
+  galleryMainImage.src = currentProjectImages[currentGalleryIndex];
+  galleryMainImage.alt = `Screenshot ${currentGalleryIndex + 1}`;
+
+  // Update thumbnail active state
+  galleryThumbnails.querySelectorAll('.gallery-thumbnail').forEach((thumb, index) => {
+    thumb.classList.toggle('active', index === currentGalleryIndex);
+  });
+
+  // Hide/show nav buttons based on image count
+  if (currentProjectImages.length <= 1) {
+    galleryPrev.style.display = 'none';
+    galleryNext.style.display = 'none';
+  } else {
+    galleryPrev.style.display = 'flex';
+    galleryNext.style.display = 'flex';
+  }
+}
+
+// Gallery navigation
+function navigateGallery(direction) {
+  currentGalleryIndex += direction;
+  if (currentGalleryIndex < 0) {
+    currentGalleryIndex = currentProjectImages.length - 1;
+  } else if (currentGalleryIndex >= currentProjectImages.length) {
+    currentGalleryIndex = 0;
+  }
+  updateGallery();
+}
+
+// Event Listeners
+if (projectModal) {
+  // Project card click handlers
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projectId = card.dataset.project;
+      if (projectId) {
+        openProjectModal(projectId);
+      }
+    });
+  });
+
+  // Close modal handlers
+  modalClose.addEventListener('click', closeProjectModal);
+  modalBackdrop.addEventListener('click', closeProjectModal);
+
+  // Gallery navigation handlers
+  galleryPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateGallery(-1);
+  });
+
+  galleryNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateGallery(1);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!projectModal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeProjectModal();
+    } else if (e.key === 'ArrowLeft') {
+      navigateGallery(-1);
+    } else if (e.key === 'ArrowRight') {
+      navigateGallery(1);
+    }
+  });
+}
