@@ -59,12 +59,13 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e
 });
 
 // ===== TYPING EFFECT =====
+// Prefix in HTML is "Building" — these must read as "Building ___"
 const titles = [
-  'Mobile App Developer',
-  'iOS Developer',
-  'Android Developer',
-  'Swift Enthusiast',
-  'Kotlin Developer'
+  'native iOS apps',
+  'Android experiences',
+  'cross-platform products',
+  'mobile architecture',
+  'reliable software'
 ];
 
 let titleIndex = 0;
@@ -313,9 +314,9 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ===== CONSOLE MESSAGE =====
-console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #00FFD1;');
-console.log('%cThis portfolio was crafted with ❤️ by Syed Arsalan Shah', 'font-size: 14px; color: #00D4FF;');
-console.log('%cLooking for a mobile developer? Get in touch!', 'font-size: 12px; color: #888;');
+console.log('%cSyed Arsalan Shah', 'font-size: 20px; font-weight: bold; color: #00b4d8; font-family: Georgia, serif;');
+console.log('%cMobile Engineer · Karachi, PK', 'font-size: 13px; color: #94a3b8;');
+console.log('%challmark-redesign branch · OKLCH tokens · Fraunces + Geist', 'font-size: 11px; color: #64748b;');
 
 // ===== PROJECT MODAL =====
 const projectModal = document.getElementById('project-modal');
