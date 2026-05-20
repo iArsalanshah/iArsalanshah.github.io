@@ -1,7 +1,7 @@
-/* Hallmark · macrostructure: Letter · theme: Terminal-DNA
- * Genre: technical/editorial hybrid · tone: austere
+/* Hallmark · macrostructure: Letter · theme: Amber-Editorial
+ * Genre: editorial · tone: premium
  * Font: Fraunces (display) + Geist (body) + Geist Mono (mono)
- * Tokens: OKLCH locked — no inline improvisation
+ * Tokens: OKLCH locked — warm charcoal paper / amber gold accent
  * pre-emit critique: P4 H4 E4 S4 R4 V4
  * ================================================================ */
 
@@ -10,26 +10,26 @@
    ================================================= */
 
 :root {
-  /* --- Paper (backgrounds) --- */
-  --color-paper:      oklch(12%  0.01 260);
-  --color-paper-2:    oklch(16%  0.02 260);
-  --color-paper-3:    oklch(22%  0.02 260);
-  --color-paper-4:    oklch(28%  0.02 260);
+  /* --- Paper (backgrounds) — warm charcoal --- */
+  --color-paper:      oklch(14%  0.02 70);
+  --color-paper-2:    oklch(18%  0.02 70);
+  --color-paper-3:    oklch(24%  0.02 70);
+  --color-paper-4:    oklch(30%  0.02 70);
 
-  /* --- Ink (text) --- */
-  --color-ink:        oklch(95%  0.01 260);
-  --color-ink-2:      oklch(75%  0.02 260);
-  --color-ink-3:      oklch(55%  0.02 260);
-  --color-ink-4:      oklch(40%  0.02 260);
+  /* --- Ink (text) — warm grey --- */
+  --color-ink:        oklch(95%  0.01 70);
+  --color-ink-2:      oklch(75%  0.02 70);
+  --color-ink-3:      oklch(55%  0.02 70);
+  --color-ink-4:      oklch(40%  0.02 70);
 
-  /* --- Accent (cool teal) --- */
-  --color-accent:     oklch(70%  0.14 195);
-  --color-accent-2:   oklch(60%  0.12 210);
-  --color-accent-dim: oklch(70%  0.14 195 / 0.12);
+  /* --- Accent (amber gold) --- */
+  --color-accent:     oklch(75%  0.14 75);
+  --color-accent-2:   oklch(65%  0.12 80);
+  --color-accent-dim: oklch(75%  0.14 75 / 0.12);
 
   /* --- Border --- */
-  --color-border:     oklch(100% 0.01 260 / 0.08);
-  --color-border-2:   oklch(100% 0.01 260 / 0.14);
+  --color-border:     oklch(100% 0.01 70 / 0.08);
+  --color-border-2:   oklch(100% 0.01 70 / 0.14);
 
   /* --- Font families --- */
   --font-display:  "Fraunces", ui-serif, Georgia, serif;
@@ -83,24 +83,24 @@
   --z-modal: 2000;
 }
 
-/* Light theme — disciplined inversion */
+/* Light theme — warm off-white + deep amber */
 [data-theme="light"] {
-  --color-paper:      oklch(97% 0.01 260);
-  --color-paper-2:    oklch(95% 0.01 260);
-  --color-paper-3:    oklch(92% 0.01 260);
-  --color-paper-4:    oklch(88% 0.01 260);
+  --color-paper:      oklch(97% 0.01 70);
+  --color-paper-2:    oklch(95% 0.01 70);
+  --color-paper-3:    oklch(92% 0.01 70);
+  --color-paper-4:    oklch(88% 0.01 70);
 
-  --color-ink:        oklch(18% 0.02 260);
-  --color-ink-2:      oklch(35% 0.02 260);
-  --color-ink-3:      oklch(50% 0.02 260);
-  --color-ink-4:      oklch(60% 0.02 260);
+  --color-ink:        oklch(18% 0.02 70);
+  --color-ink-2:      oklch(35% 0.02 70);
+  --color-ink-3:      oklch(50% 0.02 70);
+  --color-ink-4:      oklch(60% 0.02 70);
 
-  --color-accent:     oklch(55% 0.14 195);
-  --color-accent-2:   oklch(48% 0.12 210);
-  --color-accent-dim: oklch(55% 0.14 195 / 0.10);
+  --color-accent:     oklch(62% 0.13 75);
+  --color-accent-2:   oklch(54% 0.12 80);
+  --color-accent-dim: oklch(62% 0.13 75 / 0.10);
 
-  --color-border:     oklch(18% 0.02 260 / 0.08);
-  --color-border-2:   oklch(18% 0.02 260 / 0.14);
+  --color-border:     oklch(18% 0.02 70 / 0.08);
+  --color-border-2:   oklch(18% 0.02 70 / 0.14);
 }
 
 /* ================================================
@@ -163,8 +163,8 @@ ul, ol { list-style: none; }
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, oklch(70% 0.10 195 / 0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 40% at 80% 60%, oklch(60% 0.08 240 / 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 50% at 20% 40%, oklch(75% 0.10 75 / 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, oklch(65% 0.08 45 / 0.05) 0%, transparent 50%);
   pointer-events: none;
   z-index: -2;
   transition: opacity var(--duration-slow) var(--ease-out);
@@ -211,7 +211,7 @@ ul, ol { list-style: none; }
   left: 0;
   width: 100%;
   padding: var(--space-4) 0;
-  background: oklch(12% 0.01 260 / 0.75);
+  background: oklch(14% 0.02 70 / 0.75);
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   border-bottom: 1px solid var(--color-border);
@@ -221,16 +221,16 @@ ul, ol { list-style: none; }
 }
 
 [data-theme="light"] .navbar {
-  background: oklch(97% 0.01 260 / 0.80);
+  background: oklch(97% 0.01 70 / 0.80);
 }
 
 .navbar.scrolled {
   padding: var(--space-3) 0;
-  background: oklch(12% 0.01 260 / 0.92);
+  background: oklch(14% 0.02 70 / 0.92);
 }
 
 [data-theme="light"] .navbar.scrolled {
-  background: oklch(97% 0.01 260 / 0.95);
+  background: oklch(97% 0.01 70 / 0.95);
 }
 
 .nav-container {
@@ -477,7 +477,7 @@ ul, ol { list-style: none; }
 .btn-primary:hover {
   background: var(--color-accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px oklch(70% 0.14 195 / 0.25);
+  box-shadow: 0 4px 20px var(--color-accent-dim);
 }
 
 .btn-primary:active {
@@ -1072,7 +1072,7 @@ ul, ol { list-style: none; }
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: oklch(12% 0.01 260 / 0.65);
+  background: oklch(14% 0.02 70 / 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1496,7 +1496,7 @@ ul, ol { list-style: none; }
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: oklch(8% 0.01 260 / 0.85);
+  background: oklch(10% 0.02 70 / 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
