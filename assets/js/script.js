@@ -63,8 +63,8 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e
 const titles = [
   'native iOS apps',
   'Android experiences',
-  'cross-platform products',
-  'mobile architecture',
+  'AI‑powered systems',
+  'agent infrastructure',
   'reliable software'
 ];
 
@@ -168,10 +168,11 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    const filterValue = btn.dataset.filter;
+      const filterValue = btn.dataset.filter;
 
     projectCards.forEach(card => {
-      if (filterValue === 'all' || card.dataset.category === filterValue) {
+      const categories = card.dataset.category.split(' ');
+      if (filterValue === 'all' || categories.includes(filterValue)) {
         card.classList.remove('hidden');
         card.style.animation = 'fadeIn 0.5s ease forwards';
       } else {
@@ -315,8 +316,8 @@ document.head.appendChild(style);
 
 // ===== CONSOLE MESSAGE =====
 console.log('%cSyed Arsalan Shah', 'font-size: 20px; font-weight: bold; color: #00b4d8; font-family: Georgia, serif;');
-console.log('%cMobile Engineer · Karachi, PK', 'font-size: 13px; color: #94a3b8;');
-console.log('%challmark-redesign branch · OKLCH tokens · Fraunces + Geist', 'font-size: 11px; color: #64748b;');
+console.log('%cMobile Engineer · AI‑Augmented Systems · Karachi, PK', 'font-size: 13px; color: #94a3b8;');
+console.log('%cfeat/ai-portfolio · OKLCH tokens · Fraunces + Geist', 'font-size: 11px; color: #64748b;');
 
 // ===== PROJECT MODAL =====
 const projectModal = document.getElementById('project-modal');
@@ -332,24 +333,10 @@ const modalDescription = document.getElementById('modal-description');
 const modalTechTags = document.getElementById('modal-tech-tags');
 const modalFeaturesList = document.getElementById('modal-features-list');
 const modalAppLink = document.getElementById('modal-app-link');
+const modalLinkText = document.getElementById('modal-link-text');
 
 // Project data with details and images
 const projectsData = {
-  'ui-story': {
-    title: 'UI Story',
-    category: 'iOS App',
-    description: 'UI Story is a powerful design inspiration app that helps designers and developers discover, save, and organize beautiful UI patterns from top mobile applications. Browse through curated collections of stunning interfaces and get inspired for your next project.',
-    tech: ['Swift', 'SwiftUI', 'Core Data', 'CloudKit', 'UIKit'],
-    features: [
-      'Curated collection of premium UI designs',
-      'Smart categorization and tagging system',
-      'Offline access to saved inspirations',
-      'Cloud sync across all devices',
-      'Advanced search and filtering options'
-    ],
-    images: ['./assets/images/ui_story.png'],
-    appLink: '#'
-  },
   'boxit4me': {
     title: 'Boxit4me',
     category: 'iOS App',
@@ -454,6 +441,55 @@ const projectsData = {
     ],
     images: ['./assets/images/dining1.webp', './assets/images/dining2.webp', './assets/images/dining3.webp', './assets/images/dining4.webp'],
     appLink: '#'
+  },
+  'nutrition-ai': {
+    title: 'Nutrition AI Platform',
+    category: 'Systems',
+    description: 'A production-grade, multi-tenant nutrition API with photo-based vision AI analysis, barcode lookup, and food logging. Built from scratch with TypeScript/Hono, PostgreSQL, and Redis — supported by a SwiftUI consumer app with AVFoundation camera capture and barcode scanning.',
+    tech: ['TypeScript', 'Hono', 'PostgreSQL', 'Redis', 'SwiftUI', 'Docker', 'Vision AI'],
+    features: [
+      'Vision AI photo analysis for food recognition',
+      'Barcode lookup with Redis caching (24h TTL)',
+      'Multi-tenant API with tiered rate limiting',
+      'JWT cookie auth + admin dashboards',
+      '8 test suites, GitHub Actions CI/CD, Sentry',
+      'The plan is to add Apple Vision Pro compatibility too'
+    ],
+    images: ['./assets/images/brand-nutrition.svg'],
+    appLink: '#',
+    externalLink: 'https://github.com/iArsalanshah?tab=repositories'
+  },
+  'ghostfetch': {
+    title: 'GhostFetch',
+    category: 'Open Source',
+    description: 'GhostFetch is a stealthy, headless browser service designed for AI agents. It bypasses anti-bot protections on difficult sites (like X/Twitter) and returns clean, LLM-ready Markdown. Ships as a pip package, Docker container, and REST API.',
+    tech: ['Python', 'Playwright', 'Docker', 'REST API', 'Async Jobs'],
+    features: [
+      'Ghost Protocol for anti-bot evasion',
+      'Smart infinite scroll for X/Twitter threads',
+      'API key auth with async job queue',
+      'Proxy rotation with round-robin strategy',
+      '5 GitHub stars, 7 releases, 27 commits',
+      'Pip install + Docker + serve modes'
+    ],
+    images: ['./assets/images/brand-ghostfetch.svg'],
+    appLink: 'https://github.com/iArsalanshah/GhostFetch'
+  },
+  'multi-agent': {
+    title: 'Multi‑Agent System',
+    category: 'Systems',
+    description: 'A personal R&D lab for multi-agent orchestration. Dedicated Scrum Master, QA/Review, and execution agents run on DeepSeek V4 and Kimi K2.6 — connected via a Task Bus with persistent job tracking, SLA-bound escalation chains, and health-check monitoring.',
+    tech: ['DeepSeek V4', 'Kimi K2.6', 'AWS EC2', 'Tailscale', 'Discord', 'Python'],
+    features: [
+      'Scrum Master Agent for task triage and decomposition',
+      'QA/Review Agent with P0–P4 severity framework',
+      'Task Bus with JSON persistence and staleness detection',
+      'SLA-bound escalation chains to CEO',
+      'Hermes agents running 24/7 via Discord + Tailscale',
+      'Health check script with exit-code monitoring'
+    ],
+    images: ['./assets/images/brand-agency.svg'],
+    appLink: '#'
   }
 };
 
@@ -484,6 +520,11 @@ function openProjectModal(projectId) {
   if (project.appLink && project.appLink !== '#') {
     modalAppLink.href = project.appLink;
     modalAppLink.classList.remove('hidden');
+    if (project.appLink.includes('github.com')) {
+      modalLinkText.textContent = 'View on GitHub';
+    } else {
+      modalLinkText.textContent = 'View Project';
+    }
   } else {
     modalAppLink.classList.add('hidden');
   }

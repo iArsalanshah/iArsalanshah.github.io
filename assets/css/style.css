@@ -993,6 +993,21 @@ ul, ol { list-style: none; }
 }
 
 /* ================================================
+   #BRANDED PROJECT CARDS
+   ================================================= */
+
+.brand-card .brand-image img {
+  object-fit: contain;
+  padding: var(--space-6);
+  background: var(--color-paper);
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.brand-card:hover .brand-image img {
+  transform: scale(1.03);
+}
+
+/* ================================================
    #PORTFOLIO SECTION
    ================================================= */
 
@@ -1029,7 +1044,7 @@ ul, ol { list-style: none; }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-5);
 }
 
@@ -1040,6 +1055,7 @@ ul, ol { list-style: none; }
   overflow: hidden;
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
+  max-width: 420px;
 }
 
 .project-card:hover {

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#16163a"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#818cf8"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg2)"/>
+  <g opacity="0.03">
+    <rect x="50" y="30" width="180" height="120" rx="8" fill="#818cf8"/>
+    <rect x="380" y="300" width="160" height="110" rx="8" fill="#6366f1"/>
+    <rect x="250" y="180" width="200" height="90" rx="8" fill="#a5b4fc"/>
+  </g>
+  <g transform="translate(300,155)">
+    <ellipse cx="0" cy="10" rx="38" ry="18" fill="none" stroke="#818cf8" stroke-width="2.5" opacity="0.3"/>
+    <path d="M-20,-2 C-20,-35 20,-35 20,-2" fill="none" stroke="url(#accent2)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <path d="M-14,-8 C-14,-30 14,-30 14,-8" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    <circle cx="-12" cy="-12" r="4" fill="#818cf8" opacity="0.9"/>
+    <circle cx="12" cy="-12" r="4" fill="#818cf8" opacity="0.9"/>
+    <circle cx="-12" cy="-12" r="2" fill="#fff" opacity="0.5"/>
+    <circle cx="12" cy="-12" r="2" fill="#fff" opacity="0.5"/>
+    <ellipse cx="0" cy="5" rx="4" ry="3" fill="none" stroke="#a5b4fc" stroke-width="1.5" opacity="0.6"/>
+    <line x1="28" y1="-15" x2="45" y2="-28" stroke="#818cf8" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="-28" y1="-15" x2="-45" y2="-28" stroke="#818cf8" stroke-width="1.5" opacity="0.4" stroke-dasharray="3,3"/>
+    <line x1="30" y1="5" x2="48" y2="5" stroke="#6366f1" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,4"/>
+    <line x1="-30" y1="5" x2="-48" y2="5" stroke="#6366f1" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,4"/>
+  </g>
+  <text x="300" y="280" text-anchor="middle" font-family="monospace" font-size="24" font-weight="700" fill="#e0e7ff" letter-spacing="0.1em">GhostFetch</text>
+  <text x="300" y="312" text-anchor="middle" font-family="monospace" font-size="11" fill="#a5b4fc" letter-spacing="0.08em">PYTHON · PLAYWRIGHT · DOCKER · REST API</text>
+  <g transform="translate(300,362)">
+    <rect x="-130" y="-14" width="260" height="28" rx="14" fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.25"/>
+    <rect x="-125" y="-9" width="250" height="18" rx="9" fill="#6366f1" opacity="0.08"/>
+    <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="10" fill="#818cf8" letter-spacing="0.06em">AI-READY STEALTH HEADLESS BROWSER</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1a14"/>
+      <stop offset="100%" style="stop-color:#0d2b1e"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg1)"/>
+  <g opacity="0.04">
+    <circle cx="100" cy="80" r="120" fill="#22c55e"/>
+    <circle cx="500" cy="370" r="160" fill="#10b981"/>
+    <circle cx="300" cy="220" r="200" fill="#34d399"/>
+  </g>
+  <g transform="translate(300,160)">
+    <rect x="-40" y="-40" width="80" height="80" rx="16" fill="none" stroke="#22c55e" stroke-width="3" opacity="0.3"/>
+    <rect x="-32" y="-32" width="64" height="64" rx="12" fill="none" stroke="#22c55e" stroke-width="2.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="18" fill="none" stroke="url(#accent1)" stroke-width="3" opacity="0.8"/>
+    <line x1="0" y1="10" x2="0" y2="22" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="0" y1="-10" x2="0" y2="-22" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="10" y1="0" x2="22" y2="0" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="-10" y1="0" x2="-22" y2="0" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="24" cy="-24" r="4" fill="#34d399" opacity="0.6"/>
+    <circle cx="-20" cy="20" r="3" fill="#10b981" opacity="0.5"/>
+    <circle cx="18" cy="18" r="3" fill="#22c55e" opacity="0.4"/>
+  </g>
+  <text x="300" y="280" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#d1d5db" letter-spacing="0.02em">Nutrition AI Platform</text>
+  <text x="300" y="310" text-anchor="middle" font-family="monospace" font-size="11" fill="#6ee7b7" letter-spacing="0.08em">TYPESCRIPT · SWIFTUI · POSTGRESQL · VISION AI</text>
+  <g transform="translate(300,360)">
+    <rect x="-120" y="-14" width="240" height="28" rx="14" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.25"/>
+    <rect x="-115" y="-9" width="230" height="18" rx="9" fill="#22c55e" opacity="0.08"/>
+    <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ade80" letter-spacing="0.06em">FULL-STACK API + IOS CONSUMER APP</text>
+  </g>
+</svg>
